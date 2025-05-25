@@ -1,6 +1,12 @@
 class DispositivoElectronico {
-  
+  int codigo;
+  String marca;
+
+
+  DispositivoElectronico(this.codigo,this.marca);
+
+
   void imprimir(){
-    print('Soy un dispositivos sin info');
+    print('CODIGO: $codigo , MARCA: $marca');
   }
 }

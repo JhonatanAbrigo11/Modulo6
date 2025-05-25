@@ -1,14 +1,16 @@
 import 'dispositivo_electronico.dart';
 
 class Celular extends DispositivoElectronico {
+  Celular(super.codigo,super.marca);
+
   @override
   void imprimir(){
-    print('CELULAR SIN INFO');
+    print('CODIGO: $codigo MARCA: $marca');
   }
 }
 
 void main(){
-  final celular= Celular();
+  final celular= Celular(11,"SAMSUNG");
   celular.imprimir();
 }
 
