@@ -1,4 +1,4 @@
-class DispositivoElectronico {
+abstract class DispositivoElectronico {
   int codigo;
   String marca;
 
@@ -9,4 +9,6 @@ class DispositivoElectronico {
   void imprimir(){
     print('CODIGO: $codigo , MARCA: $marca');
   }
+
+  void registrarInventario();
 }

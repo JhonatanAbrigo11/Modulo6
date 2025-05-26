@@ -1,14 +1,10 @@
-class Figura {
+abstract class Figura {
     String color;
 
     Figura(this.color);
 
 
-    double calcularArea(){
-      return 0;
-    }
+    double calcularArea();
 
-    double calcularPerimetro(){
-      return 0;
-    }
+    double calcularPerimetro(); 
 }
