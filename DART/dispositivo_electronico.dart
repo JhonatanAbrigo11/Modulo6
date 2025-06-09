@@ -10,5 +10,5 @@ abstract class DispositivoElectronico {
     print('CODIGO: $codigo , MARCA: $marca');
   }
 
-  void registrarInventario();
+  void registrarInventario(); 
 }
