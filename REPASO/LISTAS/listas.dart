@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 void main() {
   List<String> ciudades = ['Quito', 'Guayaquil', 'Cuenca', 'Loja', 'Quito'];
 
