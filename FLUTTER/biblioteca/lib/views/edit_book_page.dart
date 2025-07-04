@@ -63,7 +63,7 @@ class _EditBookPageState extends State<EditBookPage> {
                   status: status,
                   note: noteController.text,
                 );
-                await DatabaseHelper().insertBook(updateBook);
+                await DatabaseHelper().updateBook(updateBook);
                 Navigator.pop(context, true);
               },
               child: const Text('Actualizar'),

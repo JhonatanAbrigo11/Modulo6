@@ -13,7 +13,7 @@ class _AddBookPageState extends State<AddBookPage> {
   final titleController = TextEditingController();
   final authorController = TextEditingController();
   final noteController = TextEditingController();
-  String status = 'Pediente';
+  String status = 'Pendiente';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,7 +46,7 @@ class _AddBookPageState extends State<AddBookPage> {
             ElevatedButton(
               onPressed: () async {
                 final book = Book(
-                  id: DateTime.now().microsecondsSinceEpoch,
+                  id: '',
                   title: titleController.text,
                   author: authorController.text,
                   status: status,
