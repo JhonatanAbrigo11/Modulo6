@@ -17,6 +17,7 @@ class Peliculatile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 6),
+      color: const Color.fromARGB(255, 245, 222, 188),
       child: ListTile(
         title: Text(pelicula.titulo),
         subtitle: Text('${pelicula.anioEstreno}'),

@@ -51,9 +51,22 @@ class _AddtaskpageState extends State<Addtaskpage> {
               ),
               TextFormField(
                 controller: _vistaController,
-                // PARA PODER INGRESAR EL TEXTO MAS LARGO
-                maxLines: null, //Permite  q crezca el texto,
-                decoration: const InputDecoration(labelText: 'VISTA'),
+                decoration: const InputDecoration(
+                  labelText: '¿VISTA? (true/false)',
+                  hintText: 'Escribe true o false',
+                ),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Ingrese si fue vista o no';
+                  }
+
+                  final lower = value.toLowerCase();
+                  if (lower != 'true' && lower != 'false') {
+                    return 'Debe ser "true" o "false"';
+                  }
+
+                  return null;
+                },
               ),
 
               TextFormField(
@@ -108,7 +121,7 @@ class _AddtaskpageState extends State<Addtaskpage> {
                       titulo: _tituloController.text,
                       anioEstreno:
                           int.tryParse(_anioEstrenoController.text) ?? 0,
-                      vista: _vistaController.text.toLowerCase() == true,
+                      vista: _vistaController.text.toLowerCase() == 'true',
                       fechaCompra: _fechaCompraController.text,
                       resumen: _resumenController.text,
                     );
