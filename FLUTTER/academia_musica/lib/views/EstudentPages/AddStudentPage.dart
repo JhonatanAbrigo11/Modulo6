@@ -72,7 +72,7 @@ class _AddStudentPageState extends State<AddStudentPage> {
                 onPressed: () async {
                   if (_formKey.currentState!.validate()) {
                     final student = Student(
-                      id: DateTime.now().microsecondsSinceEpoch,
+                      id: '',
                       name: _nameController.text,
                       lastName: _lastNameController.text,
                       instrument: _instrument,

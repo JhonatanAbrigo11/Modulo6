@@ -50,7 +50,7 @@ class _AddTeacherPageState extends State<AddTeacherPage> {
                 onPressed: () async {
                   if (_formKey.currentState!.validate()) {
                     final teacher = Teacher(
-                      id: DateTime.now().microsecondsSinceEpoch,
+                      id: '',
                       name: _nameController.text,
                       lasName: _lasNameController.text,
                       specialty: _specialty,

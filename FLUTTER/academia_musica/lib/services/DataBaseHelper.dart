@@ -1,5 +1,86 @@
 import 'package:academia_musica/models/student.dart';
 import 'package:academia_musica/models/teacher.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+class Databasehelper {
+  static final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  static final CollectionReference studentCollection = _firestore.collection(
+    'student',
+  );
+
+  static final CollectionReference teacherCollection = _firestore.collection(
+    'teacher',
+  );
+
+  Future<void> insertStudent(Student student) async {
+    await studentCollection.add(student.toMap());
+  }
+
+  Future<List<Student>> getStudent() async {
+    final snapshot = await studentCollection.get();
+    return snapshot.docs.map((doc) {
+      final data = doc.data() as Map<String, dynamic>;
+      return Student.fromMap(data, doc.id);
+    }).toList();
+  }
+
+  Future<void> updateStudent(Student student) async {
+    await studentCollection.doc(student.id).update(student.toMap());
+  }
+
+  Future<void> deleteStudent(String id) async {
+    await studentCollection.doc(id).delete();
+  }
+
+  Future<List<Student>> searchStudentsByName(String name) async {
+    final querySnapshot = await studentCollection
+        .where('name', isGreaterThanOrEqualTo: name)
+        .where('name', isLessThan: name + 'z') // Para hacer búsqueda tipo LIKE
+        .get();
+
+    return querySnapshot.docs.map((doc) {
+      final data = doc.data() as Map<String, dynamic>;
+      return Student.fromMap(data, doc.id);
+    }).toList();
+  }
+
+  //Teacher;
+
+  Future<void> insertTeacher(Teacher teacher) async {
+    await teacherCollection.add(teacher.toMap());
+  }
+
+  Future<List<Teacher>> getTeachers() async {
+    final snapshot = await teacherCollection.get();
+    return snapshot.docs.map((doc) {
+      final data = doc.data() as Map<String, dynamic>;
+      return Teacher.fromMap(data, doc.id);
+    }).toList();
+  }
+
+  Future<void> updateTeacher(Teacher teacher) async {
+    await teacherCollection.doc(teacher.id).update(teacher.toMap());
+  }
+
+  Future<void> deleteTeacher(String id) async {
+    await teacherCollection.doc(id).delete();
+  }
+
+  Future<List<Teacher>> searchTeachersByName(String name) async {
+    final querySnapshot = await teacherCollection
+        .where('name', isGreaterThanOrEqualTo: name)
+        .where('name', isLessThan: name + 'z') // Para hacer búsqueda tipo LIKE
+        .get();
+
+    return querySnapshot.docs.map((doc) {
+      final data = doc.data() as Map<String, dynamic>;
+      return Teacher.fromMap(data, doc.id);
+    }).toList();
+  }
+}
+
+/*import 'package:academia_musica/models/student.dart';
+import 'package:academia_musica/models/teacher.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -132,4 +213,4 @@ class Databasehelper {
     );
     return maps.map((map) => Teacher.fromMap(map)).toList();
   }
-}
+}*/

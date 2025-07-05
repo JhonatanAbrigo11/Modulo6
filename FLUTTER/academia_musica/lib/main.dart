@@ -5,10 +5,18 @@ import 'package:academia_musica/views/HomePage.dart';
 import 'package:academia_musica/views/TeacherPages/AddTeacherPage.dart';
 import 'package:academia_musica/views/TeacherPages/LisTeacherPage.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MainApp());
 }
+
+/*void main() {
+  runApp(const MainApp());
+}*/
 
 class MainApp extends StatelessWidget {
   const MainApp({super.key});

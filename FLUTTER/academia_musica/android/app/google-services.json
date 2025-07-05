@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "729451382665",
+    "project_id": "academiamusica-bd09b",
+    "storage_bucket": "academiamusica-bd09b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:729451382665:android:c476f76c20d1172f2ec358",
+        "android_client_info": {
+          "package_name": "com.example.academia_musica"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDiE1hVVMey1a0XFSwaQKluBCRCenKP5d4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -46,7 +46,7 @@ class ListeStudenTPageState extends State<ListStudentPage> {
     });
   }
 
-  void _deleteStudent(int id) async {
+  void _deleteStudent(String id) async {
     await Databasehelper().deleteStudent(id);
     _refreshList();
   }
@@ -61,7 +61,9 @@ class ListeStudenTPageState extends State<ListStudentPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar('A.C PRODUCCIONES', 'LISTA DE ESTUDIANTES'),
+      appBar: CustomAppBar('A.C PRODUCCIONES', 'LISTA DE ESTUDIANTES', () {
+        _refreshList();
+      }),
       body: Column(
         children: [
           SearchBarGeneral(

@@ -1,5 +1,5 @@
 class Student {
-  final int id;
+  final String id;
   final String name;
   final String lastName;
   final String instrument;
@@ -22,13 +22,13 @@ class Student {
     };
   }
 
-  factory Student.fromMap(Map<String, dynamic> map) {
+  factory Student.fromMap(Map<String, dynamic> map, String id) {
     return Student(
-      id: map['id'],
-      name: map['name'],
-      lastName: map['lastName'],
-      instrument: map['instrument'],
-      academicLevel: map['academicLevel'],
+      id: id,
+      name: map['name'] ?? '',
+      lastName: map['lastName'] ?? '',
+      instrument: map['instrument'] ?? '',
+      academicLevel: map['academicLevel'] ?? '',
     );
   }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 // ignore: non_constant_identifier_names
-AppBar CustomAppBar(String title, String subtitle) {
+AppBar CustomAppBar(String title, String subtitle, [VoidCallback? onPressed]) {
   return AppBar(
     elevation: 20,
     shadowColor: const Color.fromARGB(137, 126, 86, 2),
@@ -16,5 +16,6 @@ AppBar CustomAppBar(String title, String subtitle) {
       ],
     ),
     centerTitle: true,
+    actions: [IconButton(onPressed: onPressed, icon: Icon(Icons.refresh))],
   );
 }
